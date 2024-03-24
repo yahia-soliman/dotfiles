@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#List all attached IPv4 adresses for this machine
+ifconfig | grep "inet " | cut -d ' ' -f 10
