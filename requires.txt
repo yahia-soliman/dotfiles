@@ -8,4 +8,4 @@ glu lib32-glu
 
 xorg-server xorg-xinit sxhkd bspwm
 
-neovim
+git neovim alacritty feh
