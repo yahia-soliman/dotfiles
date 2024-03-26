@@ -1,0 +1,7 @@
+127.0.0.1	localhost
+8.8.8.8		facebook.com
+127.0.1.1	debian.home	debian
+
+# The following lines are desirable for IPv6 capable hosts
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
