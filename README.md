@@ -33,3 +33,37 @@ just insall pipewire and enable the services
 ```sh
 systemctl --user --now enable pipewire pipewire-pulse wireplumber
 ```
+
+
+## How To Transfere files with cat7 cable
+Imagine we have two hosts, A and B, we want to send a file or more from A to B
+
+it's actually easy as cake and faster than using usb
+
+- plug the cable to both hosts
+
+- make a subnet mask and give each host an IP address in the subnet
+    > in host A:
+    > ```sh
+    > ip address add 10.0.0.10/24 dev <device_name>
+    > ```
+    > in host B:
+    > ```sh
+    > ip address add 10.0.0.20/24 dev <device_name>
+    > ```
+    > you can choose whatever IPs you like but make sure they are in the same subnet.
+    > 
+    > > to get the device name just run `ip addr show`
+
+- connect B to A while A is listening to a port and sending the files into it
+    > in host A:
+    > ```sh
+    > tar cz /path/to/send | nc -q <timeout_seconds> -l -p <port>
+    > ```
+    > in host B:
+    > ```sh
+    > nc -w <wait_seconds> <ip_given_to_A> <port> | tar xz --directory /path/to/save
+    > ```
+
+And thats it after the transfere is done the connection will close, because we specified the `-q` option.
+> Avoid typing to `stdin` in both terminal while transfering, if you are using a terminal emulator you are free to open another terminal and do whatever you want while the files are being transfered.
