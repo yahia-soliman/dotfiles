@@ -2,49 +2,52 @@
 #  TERM: xterm-256color
 
 [window]
-padding = { x = 0, y = 0 }
-decoration = "None"
+padding = { x = 8, y = 8 }
 opacity = 1
 title = "terminal"
 dynamic_title = true
 
 [font]
-size = 17.5
-normal = {
-      family = "SplineSansMono",
-      style = "Medium"
-}
-bold = {
-      family = "SplineSansMono",
-      style = "Bold"
-}
-italic = {
-      family = "SplineSansMono",
-      style = "Italic"
-}
+size = 11.25
+normal = { family = "JetBrainsMono Nerd Font", style = "SemiBold" }
+bold = { family = "JetBrainsMono Nerd Font", style = "ExtraBold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Light" }
 
 [colors.primary]
-background = '#0A0E14'
-foreground = '#B3B1AD'
+background = '#1a1b26'
+foreground = '#c0caf5'
+
+#[colors.cursor]
+#cursor = '#c0caf5'
+#text = '#1a1b26'
 
 # Normal colors
 [colors.normal]
-black   = '#01060E'
-red     = '#EA6C73'
-green   = '#91B362'
-yellow  = '#F9AF4F'
-blue    = '#53BDFA'
-magenta = '#FAE994'
-cyan    = '#90E1C6'
-white   = '#C7C7C7'
+black = '#15161e'
+red = '#f7768e'
+green = '#9ece6a'
+yellow = '#e0af68'
+blue = '#7aa2f7'
+magenta = '#bb9af7'
+cyan = '#7dcfff'
+white = '#a9b1d6'
 
 # Bright colors
 [colors.bright]
-black   = '#686868'
-red     = '#F07178'
-green   = '#C2D94C'
-yellow  = '#FFB454'
-blue    = '#59C2FF'
-magenta = '#FFEE99'
-cyan    = '#95E6CB'
-white   = '#FFFFFF'
+black = '#414868'
+red = '#f7768e'
+green = '#9ece6a'
+yellow = '#e0af68'
+blue = '#7aa2f7'
+magenta = '#bb9af7'
+cyan = '#7dcfff'
+white = '#c0caf5'
+
+# Indexed Colors
+[[colors.indexed_colors]]
+index = 16
+color = '#ff9e64'
+
+[[colors.indexed_colors]]
+index = 17
+color = '#db4b4b'
