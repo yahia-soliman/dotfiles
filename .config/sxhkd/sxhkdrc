@@ -1,0 +1,27 @@
+#
+# Volume Controls
+#
+XF86AudioMute
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+XF86Audio{Raise,Lower}Volume
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%{+,-}
+
+# terminal emulator
+super + {_,ctrl + }Return
+	alacritty {_,--class floating_terminal}
+
+super + p
+	alacritty -T ScratchPad --class scratchpad
+
+# program launcher
+super + l
+	rofi -matching fuzzy -show drun
+
+# screenshot to clipboard
+Print
+	maim --select | xclip -selection clipboard -target image/png
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
