@@ -50,6 +50,12 @@ alias y3='yt-dlp -f "bestaudio[ext=m4a]" --ignore-errors --continue --no-overwri
 alias i='doas pacman -S'
 alias r='doas pacman -Runs'
 
+# alias q='doas xbps-query -Rs'
+# alias qi='doas xbps-query -Rm'
+# alias i='doas xbps-install -S'
+# alias u='i; doas xbps-install -u xbps; doas xbps-install -u'
+# alias r='doas xbps-remove -R'
+
 xevshort () {
 	xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }';
 }
