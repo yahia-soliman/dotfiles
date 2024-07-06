@@ -156,7 +156,16 @@ return { -- LSP Configuration & Plugins
       tsserver = {},
       prettierd = {},
       tailwindcss = {},
-      pyright = {},
+      pyright = {
+        settings = {
+          python = {
+            analysis = {
+              diagnosticMode = 'on',
+              typeCheckingMode = 'on',
+            },
+          },
+        },
+      },
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
