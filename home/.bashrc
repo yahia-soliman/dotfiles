@@ -4,9 +4,8 @@
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-set -o vi
 
-# PS1='[\u@\h \W]\$ '
+set -o vi
 
 export PS100="\W \[\e[1;31m\]>\[\e[m\]\[\e[1;33m\]>\[\e[m\]\[\e[1;32m\]>\[\e[m\] "
 __bash_prompt() {
@@ -18,13 +17,6 @@ __bash_prompt() {
 	fi
 }
 PROMPT_COMMAND=__bash_prompt
-
-# env variables
-PATH="$PATH:$HOME/.local/bin"
-# MANPATH="$(manpath):$HOME/.local/share/man"  this is useless since it can be accessed from $PATH/../share/man due to the line above
-NODE_PATH="$HOME/.local/lib/node_modules"
-# this will be useful if only this line is in the .npmrc
-# prefix = "${HOME}/.local"
 
 
 alias ls='ls --color=auto -1'
