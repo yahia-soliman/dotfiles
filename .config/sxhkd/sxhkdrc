@@ -20,6 +20,9 @@ super + d
 
 # screenshot to clipboard
 Print
+	maim --select ~/files/screenshots/$(date +%F-%H%M%S).png
+
+Shift + Print
 	maim --select | xclip -selection clipboard -target image/png
 
 # make sxhkd reload its configuration files:

@@ -8,10 +8,17 @@ title = "terminal"
 dynamic_title = true
 
 [font]
-size = 11.25
+size = 8.5
 normal = { family = "terminal-font", style = "SemiBold" }
 bold = { family = "terminal-font", style = "ExtraBold" }
-italic = { family = "terminal-font", style = "Light" }
+italic = { family = "terminal-font", style = "Medium Italic" }
+
+[keyboard]
+bindings = [
+{ key = "P", mods = "Control|Shift", action = "Paste" },
+{ key = "Y", mods = "Control|Shift", chars = "Copy" },
+]
+
 
 [colors.primary]
 background = '#1a1b26'
