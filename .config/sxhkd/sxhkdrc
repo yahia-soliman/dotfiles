@@ -11,9 +11,6 @@ XF86Audio{Raise,Lower}Volume
 super + {_,ctrl + }Return
 	alacritty {_,--class floating_terminal}
 
-super + s
-	alacritty -T ScratchPad --class scratchpad
-
 # program launcher
 super + d
 	rofi -matching fuzzy -show drun

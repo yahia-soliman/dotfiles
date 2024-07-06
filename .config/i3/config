@@ -1,9 +1,23 @@
 font pango:Source Code Pro 8
 
-# for_window [all] title_window_icon on
-default_border none
+# focus_follows_mouse no
+# workspace_layout tabbed
+# focus_on_window_activation focus
+
+# normal|none|pixel <n>
+default_border pixel 1
 default_floating_border none
+
+# none|vertical|horizontal|both|smart|smart_no_gaps
 hide_edge_borders smart
+
+# gaps inner|outer|horizontal|vertical|top|left|bottom|right <n>
+gaps inner 15
+gaps horizontal 20
+gaps bottom 15
+
+# smart_gaps on|off|inverse_outer
+
 
 
 ### ~/.Xresources VARIABLES ###
@@ -11,9 +25,21 @@ set_from_resource $bg i3wm.background  #222333
 set_from_resource $fg i3wm.foreground  #fafafa
 
 set_from_resource $color1  i3wm.color1  #f7768e
-set_from_resource $color3  i3wm.color3  #e0af68
+set_from_resource $coLor3  i3wm.color3  #e0af68
 set_from_resource $color4  i3wm.color4  #7aa2f7
 set_from_resource $color8  i3wm.color8  #414868
+
+
+## Colors
+#tokyonight
+# class                 border  backgr. text    indicator child_border
+client.focused          $color8 $color8 $fg     $color8   $color4
+client.focused_inactive $color8 $color8 #ffffff #cfc9c2   #cfc9c2
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #cc241d #900000 #ffffff #cc241d   #cc241d
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       $bg
 
 
 ### STATUS BAR ###
@@ -22,9 +48,11 @@ bar {
   i3bar_command i3bar --transparency
   position bottom
   mode hide
+  hidden_state show
+  # tray_output none
   font pango:Source Code Pro 10
   separator_symbol " "
-  padding 2px 0
+  padding 0
   tray_output primary
   tray_padding 2px
   workspace_min_width 25
@@ -150,12 +178,13 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 ### RULES ###
 for_window [title="Application Finder"] floating enable resize set 640 480
 for_window [class="floating_terminal"] floating enable resize set 630 360
-for_window [title="feh"] floating enable resize set 640 480
+for_window [title="feh"] floating enable resize set 1080 720 move center
 
 
+### SCRATCH PADS ###
+for_window [class="scratty"] floating enable border none move scratchpad
+bindsym $mod+s [class="scratty"] scratchpad show; exec --no-startup-id pgrep -f scratty$ || (alacritty --class scratty & sleep 0.2 && i3-msg '[class="scratty"] focus')
 
-## Start up programs
-# exec --no-startup-id pipewire
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart

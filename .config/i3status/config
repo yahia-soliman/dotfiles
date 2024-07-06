@@ -17,16 +17,16 @@ general {
 }
 
 order += "volume master"
-order += "wireless _first_"
+#order += "wireless _first_"
 order += "disk /"
 order += "disk /home"
 order += "memory"
+order += "cpu_usage"
 order += "cpu_temperature 0"
-order += "battery all"
+#order += "battery all"
 order += "tztime localdate"
 order += "tztime localtime"
 # order += "load"
-# order += "cpu_usage"
 
 
 volume master {
@@ -39,15 +39,17 @@ volume master {
 
 wireless _first_ {
         format_up = "<span color='#3498DB' size='large'> </span> <span bgcolor='#3498DB' foreground='black'>%quality %essid </span>"
-        format_down = "<span color='#D32F2F'>  Offline</span>"
+        format_down = "<span color='#D32F2F'> Offline</span>"
 }
-
-
 
 memory {
         format = "<span color='#8E44AD' size='large'> </span> <span bgcolor='#8E44AD' foreground='white'> %used </span>"
         threshold_degraded = "10%"
         format_degraded = "MEMORY: %free"
+}
+
+cpu_usage {
+        format = "<span color='#e0ff68' size='large'> </span> <span bgcolor='#e0ff68' foreground='black'> %usage </span>"
 }
 
 cpu_temperature 0 {
@@ -72,7 +74,7 @@ tztime localdate {
 }
 
 tztime localtime {
-        format = "<span color='#00dddd' size='large'> </span><span bgcolor='#00dddd' foreground='black'> %I:%M %p </span> "
+        format = "<span color='#00dddd' size='large'> </span><span bgcolor='#00dddd' foreground='black'> %I:%M %p </span>"
 }
 
 disk "/home" {
@@ -85,13 +87,7 @@ disk "/" {
         prefix_type = custom
 }
 
-cpu_usage {
-        format = "  %usage "
-}
-
 load {
         format = "  %1min "
         max_threshold = 5
 }
-
-
