@@ -89,7 +89,7 @@ bindsym $mod+n focus next
 bindsym $mod+p focus prev
 
 # change focus between tiling / floating windows
-bindsym $mod+o focus mode_toggle
+bindsym $mod+backspace focus mode_toggle
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down

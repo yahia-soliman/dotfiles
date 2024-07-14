@@ -12,7 +12,7 @@ super + {_,ctrl + }Return
 	alacritty {_,--class floating_terminal}
 
 # program launcher
-super + d
+super + o
 	rofi -matching fuzzy -show drun
 
 # screenshot to clipboard
