@@ -1,5 +1,5 @@
-#env:
-#  TERM: xterm-256color
+[env]
+TERM = "xterm-256color"
 
 [window]
 padding = { x = 8, y = 8 }
@@ -8,9 +8,9 @@ title = "terminal"
 dynamic_title = true
 
 [font]
-size = 12.5
-normal = { family = "terminal-font", style = "SemiBold" }
-bold = { family = "terminal-font", style = "ExtraBold" }
+size = 13
+normal = { family = "terminal-font", style = "Medium" }
+bold = { family = "terminal-font", style = "Bold" }
 italic = { family = "terminal-font", style = "Medium Italic" }
 
 [keyboard]
