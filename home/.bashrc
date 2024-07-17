@@ -7,16 +7,8 @@
 
 set -o vi
 
-export PS100="\W \[\e[1;31m\]>\[\e[m\]\[\e[1;33m\]>\[\e[m\]\[\e[1;32m\]>\[\e[m\] "
-__bash_prompt() {
-	local EXIT="$?"
-	if [ $EXIT != 0 ]; then
-		PS1="\[\e[31m\]\[\e[m\] ${PS100}"
-	else
-		PS1="\[\e[36m\]\[\e[m\] ${PS100}"
-	fi
-}
-PROMPT_COMMAND=__bash_prompt
+export PS1="\[\e[36m\]\[\e[m\] \W \[\e[1;31m\]>\[\e[m\]\[\e[1;33m\]>\[\e[m\]\[\e[1;32m\]>\[\e[m\] "
+PROMPT_COMMAND='((x = $? == 0 ? 6 : 1)); PS1=${PS1/3?m/3"$x"m}'
 
 
 alias ls='ls --color=auto -1'
