@@ -1,69 +1,99 @@
-# It is time for collecting everything important for my linux environment
+# Comfy home inside the Void
 
-## Mouse Acceliration
-by default graphical display servers such as x-org or wayland, adds some acceleration to mouse speed (they don't increase the speed although they can, but they accelerate it), meaning that the speed of the pointer will vary depending on the physical mouse speed, there is no fixed ratio between them.
+# System Specs
 
----
+| OS     | Void Linux |
+| ------ | ---------- |
+| WM     | i3         |
+| Editor | Neovim     |
+| Term   | Alacritty  |
+| Audio  | pipewire   |
 
-### [source: Arch wiki](https://wiki.archlinux.org/title/Mouse_acceleration)
-Disabling the mouse acceleration means that a linear function will be used to map from physical to virtual mouse movements. The mouse speed setting controls the inclination of this linear function.
-To completely disable any sort of acceleration/deceleration, create the following file:
-`/etc/X11/xorg.conf.d/50-mouse-acceleration.conf`
-```
-Section "InputClass"
-	Identifier "<name of the mouse>"
-	MatchIsPointer "yes"
-	Option "AccelerationProfile" "-1"
-	Option "AccelerationScheme" "none"
-	Option "AccelSpeed" "-1"
-EndSection
-```
+# Configuration Steps
+## Prerequisites
+- Fresh Void Linux installation, [help](https://docs.voidlinux.org/installation/live-images/prep.html)
+- Connection to the internet `ping voidlinux.org`
+- Suitable CPU and GPU drivers Installed, [help](https://docs.voidlinux.org/config/graphical-session/graphics-drivers/index.html)
 
-### to get the name of the mouse use this command:
-```
-xinput list-props $(xinput list | grep pointer | cut -d '=' -f 2 | cut -f 1)
-```
-This will list out the properties of all the pointers in use.
-the name of the device we want will have an `accel` property or something similar.
-
----
-
-## Audio
-just insall pipewire and enable the services
+### Update the system
+After a fresh Void install the first thing is to update the system
 ```sh
-systemctl --user --now enable pipewire pipewire-pulse wireplumber
+sudo xbps-install -S; sudo xbps-install -u xbps; sudo xbps-install -u;
 ```
 
+### configure `doas`
+this is the last time we use `sudo`
+```sh
+sudo xbps-install -S opendoas
+echo permit nopass $USER as root | sudo tee /etc/doas.conf
+```
+### Set Aliases
+this aliases to help shortening commands in the script and here is the document.
+```sh
+# install packages
+alias i='doas xbps-install -S'
+# update the system, or packages
+alias u='i; doas xbps-install -u xbps; doas xbps-install -u'
+# remove packages
+alias r='doas xbps-remove -R'
+alias q='doas xbps-query -Rs' 
+alias qi='doas xbps-query -Rm'
+```
 
-## How To Transfere files with cat7 cable
-Imagine we have two hosts, A and B, we want to send a file or more from A to B
+### Install needed packages
+```sh
+i mesa-dri # for amd & intel GPU
+i xorg-minimal xinit setxkbmap sxhkd xmodmap xclip xrdb maim feh
+i picom i3 i3status alacritty rofi breeze-obsidian-cursor-theme
+i noto-fonts-ttf noto-fonts-emoji nerd-fonts-symbols-ttf font-sourcecodepro
+i pipewire wireplumber
+i git tmux neovim
 
-it's actually easy as cake and faster than using usb
+# the following are optional if you will not use my nvim config
+i fd ripgrep tealdeer bash-completion unzip wget curl
+i zig python3 nodejs
+i mpv yt-dlp
+```
 
-- plug the cable to both hosts
+### use `neovim`
+```sh
+doas rm -rf /usr/bin/nvi
+doas ln -sf /usr/bin/{nvim,vi}
+```
 
-- make a subnet mask and give each host an IP address in the subnet
-    > in host A:
-    > ```sh
-    > ip address add 10.0.0.10/24 dev <device_name>
-    > ```
-    > in host B:
-    > ```sh
-    > ip address add 10.0.0.20/24 dev <device_name>
-    > ```
-    > you can choose whatever IPs you like but make sure they are in the same subnet.
-    > 
-    > > to get the device name just run `ip addr show`
+### Audio with `pipewire`
+```sh
+doas mkdir -p /etc/pipewire/pipewire.conf.d
+doas ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
+doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+doas ln -s /etc/sv/dbus/ /var/service/
+```
 
-- connect B to A while A is listening to a port and sending the files into it
-    > in host A:
-    > ```sh
-    > tar cz /path/to/send | nc -q <timeout_seconds> -l -p <port>
-    > ```
-    > in host B:
-    > ```sh
-    > nc -w <wait_seconds> <ip_given_to_A> <port> | tar xz --directory /path/to/save
-    > ```
+## Enable Bluetooth
+```sh
+# check if the user has bluetooth and it is unblocked
+rfkill | grep bluetooth
 
-And thats it after the transfere is done the connection will close, because we specified the `-q` option.
-> Avoid typing to `stdin` in both terminal while transfering, if you are using a terminal emulator you are free to open another terminal and do whatever you want while the files are being transfered.
+# if you have bluetooth in the output
+rfkill unblock bluetooth
+i bluez libspa-bluetooth
+doas ln -s /etc/sv/{dbus,bluetoothd}/ /var/service/
+doas usermod $USER -aG bluetooth
+```
+
+### clone the `dotfiles`
+```sh
+git clone https://github.com/yahia-soliman/dotfiles
+```
+
+### Link configurations
+```sh
+mkdir -p ~/.config ~/.local/bin
+
+ln -s ~/dotfiles/.config/* ~/.config/
+ln -sf ~/dotfiles/home/.* ~/
+ln -sf ~/dotfiles/bin/* ~/.local/bin/
+```
+
+## Reboot and Enjoy The Void
+If there is any issue contact me or submit an issue on this repo
