@@ -1,5 +1,7 @@
-! TokyoNight colors for Xresources
+! Xcursor.size: 37
+Xcursor.theme: Breeze_Obsidian
 
+! TokyoNight colors for Xresources
 *background: #1a1b26
 *foreground: #c0caf5
 
