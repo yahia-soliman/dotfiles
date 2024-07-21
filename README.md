@@ -46,7 +46,7 @@ i mesa-dri # for amd & intel GPU
 i xorg-minimal xinit setxkbmap sxhkd xmodmap xclip xrdb maim feh
 i picom i3 i3status alacritty rofi breeze-obsidian-cursor-theme
 i noto-fonts-ttf noto-fonts-emoji nerd-fonts-symbols-ttf font-sourcecodepro
-i pipewire wireplumber
+i dbus pipewire wireplumber
 i git tmux neovim
 
 # the following are optional if you will not use my nvim config
