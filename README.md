@@ -27,21 +27,12 @@ this is the last time we use `sudo`
 sudo xbps-install -S opendoas
 echo permit nopass $USER as root | sudo tee /etc/doas.conf
 ```
-### Set Aliases
-this aliases to help shortening commands in the script and here is the document.
-```sh
-# install packages
-alias i='doas xbps-install -S'
-# update the system, or packages
-alias u='i; doas xbps-install -u xbps; doas xbps-install -u'
-# remove packages
-alias r='doas xbps-remove -R'
-alias q='doas xbps-query -Rs' 
-alias qi='doas xbps-query -Rm'
-```
 
 ### Install needed packages
 ```sh
+# Lets make a useful alias to save some key strokes
+alias i='doas xbps-install -S'
+
 i mesa-dri # for amd & intel GPU
 i xorg-minimal xinit setxkbmap sxhkd xmodmap xclip xrdb maim feh
 i picom i3 i3status alacritty rofi breeze-obsidian-cursor-theme
@@ -69,7 +60,7 @@ doas ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pip
 doas ln -s /etc/sv/dbus/ /var/service/
 ```
 
-## Enable Bluetooth
+### Bluetooth
 ```sh
 # check if the user has bluetooth and it is unblocked
 rfkill | grep bluetooth
