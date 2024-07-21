@@ -5,3 +5,17 @@
 	editor = nvim
 [color]
 	ui = true
+[init]
+  defaultBranch = main
+[help]
+  autocorrect = 1
+[alias]
+  s = status
+  a = add  .
+  c = commit -m
+  cc = commit --amend -m
+  ac = !git aa && git cm
+  p = push
+  pr = pull --rebase
+  ls = log --graph --decorate --pretty=format:'%C(3)%h %C(4)[%cn] %C(8)%s %C(1)%d'
+  alias = !git config -l | rg alias | cut -c 7- | sed 's/=/\t/'
