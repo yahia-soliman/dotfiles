@@ -14,7 +14,7 @@
   a = add  .
   c = commit -m
   cc = commit --amend -m
-  ac = !git aa && git cm
+  ac = !git a && git c
   p = push
   pr = pull --rebase
   ls = log --graph --decorate --pretty=format:'%C(3)%h %C(4)[%cn] %C(8)%s %C(1)%d'
