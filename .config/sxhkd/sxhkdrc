@@ -8,8 +8,8 @@ XF86Audio{Raise,Lower}Volume
 	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%{+,-}
 
 # terminal emulator
-super + {_,ctrl + }Return
-	alacritty {_,--class floating_terminal}
+super + Return
+  alacritty msg create-window || alacritty
 
 # program launcher
 super + o
