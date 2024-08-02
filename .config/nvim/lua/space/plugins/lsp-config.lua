@@ -156,6 +156,8 @@ return { -- LSP Configuration & Plugins
       tsserver = {},
       prettierd = {},
       tailwindcss = {},
+      black = {},
+      isort = {},
       pyright = {
         settings = {
           python = {
