@@ -9,7 +9,7 @@ XF86Audio{Raise,Lower}Volume
 
 # terminal emulator
 super + Return
-  alacritty msg create-window || alacritty
+  alacritty
 
 # program launcher
 super + o
