@@ -9,7 +9,7 @@ return { -- You can easily change to a different colorscheme.
 		transparent = true,
 	},
 	init = function()
-		vim.cmd.colorscheme("tokyonight-night")
+		vim.cmd.colorscheme("tokyonight")
 
 		-- You can configure highlights by doing something like:
 		vim.cmd.hi("Comment gui=none")
