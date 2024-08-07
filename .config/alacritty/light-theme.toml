@@ -1,39 +1,72 @@
-# TokyoNight (day)
+# catppuccin latte
 [colors.primary]
-background = '#e1e2e7'
-foreground = '#3760bf'
+background = '#EFF1F5' # base
+foreground = '#4C4F69' # text
+# Bright and dim foreground colors
+dim_foreground = '#4C4F69' # text
+bright_foreground = '#4C4F69' # text
 
-#[colors.cursor]
-#cursor = '#3760bf'
-#text = '#e1e2e7'
+
+[colors.vi_mode_cursor]
+text = '#EFF1F5' # base
+cursor = '#7287FD' # lavender
+
+# Search colors
+[colors.search.matches]
+foreground = '#EFF1F5' # base
+background = '#6C6F85' # subtext0
+
+[colors.search.focused_match]
+foreground = '#EFF1F5' # base
+background = '#40A02B' # green
+
+[colors.footer_bar]
+foreground = '#EFF1F5' # base
+background = '#6C6F85' # subtext0
+
+# Keyboard regex hints
+[colors.hints.start]
+foreground = '#EFF1F5' # base
+background = '#DF8E1D' # yellow
+
+[colors.hints.end]
+foreground = '#EFF1F5' # base
+background = '#6C6F85' # subtext0
+
+# Selection colors
+[colors.selection]
+text = '#EFF1F5' # base
+background = '#DC8A78' # rosewater
 
 # Normal colors
 [colors.normal]
-black = '#b4b5b9'
-red = '#f52a65'
-green = '#587539'
-yellow = '#8c6c3e'
-blue = '#2e7de9'
-magenta = '#9854f1'
-cyan = '#007197'
-white = '#6172b0'
+black = '#5C5F77' # subtext1
+red = '#D20F39' # red
+green = '#40A02B' # green
+yellow = '#DF8E1D' # yellow
+blue = '#1E66F5' # blue
+magenta = '#EA76CB' # pink
+cyan = '#179299' # teal
+white = '#ACB0BE' # surface2
 
 # Bright colors
 [colors.bright]
-black = '#a1a6c5'
-red = '#f52a65'
-green = '#587539'
-yellow = '#8c6c3e'
-blue = '#2e7de9'
-magenta = '#9854f1'
-cyan = '#007197'
-white = '#3760bf'
+black = '#6C6F85' # subtext0
+red = '#D20F39' # red
+green = '#40A02B' # green
+yellow = '#DF8E1D' # yellow
+blue = '#1E66F5' # blue
+magenta = '#EA76CB' # pink
+cyan = '#179299' # teal
+white = '#BCC0CC' # surface1
 
-# Indexed Colors
-[[colors.indexed_colors]]
-index = 16
-color = '#b15c00'
-
-[[colors.indexed_colors]]
-index = 17
-color = '#c64343'
+# Dim colors
+[colors.dim]
+black = '#5C5F77'
+red = '#D20F39'
+green = '#40A02B'
+yellow = '#DF8E1D'
+blue = '#1E66F5'
+magenta = '#EA76CB'
+cyan = '#179299'
+white = '#ACB0BE'
