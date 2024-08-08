@@ -13,7 +13,7 @@ hide_edge_borders smart
 
 # gaps inner|outer|horizontal|vertical|top|left|bottom|right <n>
 gaps inner 15
-gaps horizontal 20
+gaps horizontal 26
 gaps bottom 15
 
 # smart_gaps on|off|inverse_outer
