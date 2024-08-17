@@ -36,16 +36,11 @@ alias q='doas xbps-query -Rs'
 alias qi='doas xbps-query -Rm'
 
 xevshort () {
-	xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }';
+  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }';
 }
 
 paintf() {
-	clear
-	local N="$1"
-	[[ "$N" ]] || local N=$RANDOM
-
-	local DIR="$HOME/.local/bin/color-scripts"
-	local TOTAL=$(ls "$DIR" | wc -w)
-	local SCRIPT=$(ls "$DIR" | tr "\n" " " | cut -d " " -f $(("$N" % "$TOTAL" + 1)) )
-	"$DIR/$SCRIPT"
+  local DIR="$HOME/.local/bin/color-scripts"
+  local SCRIPT=${1:-$(ls $DIR | shuf -n 1)}
+  "$DIR/$SCRIPT"
 }
