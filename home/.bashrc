@@ -11,7 +11,7 @@ export PS1="\[\e[36m\]\[\e[m\] \W \[\e[1;31m\]>\[\e[m\]\[\e[1;33m\]>\[\e[m\]\
 PROMPT_COMMAND='((x = $? == 0 ? 6 : 1)); PS1=${PS1/3?m/3"$x"m};'
 
 
-alias ls='ls --color=auto -1'
+alias ls='ls --color=auto'
 alias la='ls -la'
 alias ll='ls -l'
 alias grep='grep --color=auto'
@@ -39,8 +39,10 @@ xevshort () {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }';
 }
 
-paintf() {
-  local DIR="$HOME/.local/bin/color-scripts"
-  local SCRIPT=${1:-$(ls $DIR | shuf -n 1)}
-  "$DIR/$SCRIPT"
+__PAINTF_SCRIPTS=("$HOME/.local/bin/color-scripts/"*)
+# alias paintf="clear && shuf -n 1 -e ${__PAINTF_SCRIPTS[@]} | sh"
+_PAINTF_SCRIPTS=${__PAINTF_SCRIPTS[@]##*/}
+paintf () {
+  "$HOME/.local/bin/color-scripts/${1:-$(shuf -n 1 -e ${_PAINTF_SCRIPTS[@]})}";
 }
+complete -W "${_PAINTF_SCRIPTS[@]}" paintf
