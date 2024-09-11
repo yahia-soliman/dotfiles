@@ -15,6 +15,7 @@ return { -- Autoformat
 			lua = { "stylua" },
 			python = { "black", "isort" },
 			javascript = { "prettierd" },
+			typescript = { "prettierd" },
 			html = { "prettierd" },
 			djangohtml = { "prettierd" },
 		},

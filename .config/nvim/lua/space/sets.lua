@@ -5,8 +5,8 @@ vim.g.maplocalleader = " "
 
 vim.g.have_nerd_font = true
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- vim.opt.number = true
+-- vim.opt.relativenumber = true
 
 vim.opt.expandtab = true -- false
 vim.opt.shiftwidth = 2 -- 4
@@ -25,8 +25,8 @@ vim.opt.mouse = "a" -- Enable mouse mode, can be useful for resizing splits for 
 
 vim.opt.showmode = false -- It's already in the status line
 vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
-vim.opt.cursorline = true -- Show which line your cursor is on
-vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.cursorline = false -- Show which line your cursor is on
+-- vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
 
 vim.opt.ignorecase = true -- Case-insensitive searching
 vim.opt.smartcase = true -- UNLESS \C or one or more capital letters in the search term
