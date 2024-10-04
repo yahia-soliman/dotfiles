@@ -16,6 +16,8 @@ return { -- Autoformat
 			python = { "black", "isort" },
 			javascript = { "prettierd" },
 			typescript = { "prettierd" },
+			javascriptreact = { "prettierd" },
+			typescriptreact = { "prettierd" },
 			html = { "prettierd" },
 			djangohtml = { "prettierd" },
 		},
