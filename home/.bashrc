@@ -17,7 +17,7 @@ alias ll='ls -l'
 alias grep='grep --color=auto'
 alias reboot='doas reboot'
 alias poweroff='doas poweroff'
-# alias services='systemctl list-unit-files --state=enabled --type=service'
+alias checkforces='gcc main.c && diff output <(./a.out < input)'
 
 alias pipi='pip install --break-system-packages --user'
 
