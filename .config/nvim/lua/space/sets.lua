@@ -5,8 +5,8 @@ vim.g.maplocalleader = " "
 
 vim.g.have_nerd_font = true
 
--- vim.opt.number = true
--- vim.opt.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 vim.opt.expandtab = true -- false
 vim.opt.shiftwidth = 2 -- 4
@@ -15,6 +15,7 @@ vim.opt.softtabstop = 2 -- 4
 vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.breakindent = true -- Enable break indent
+vim.opt.cindent = true
 
 vim.opt.hlsearch = true
 vim.opt.incsearch = true

@@ -7,7 +7,7 @@
 
 set -o vi
 
-export PS1="\[\e[36m\]\[\e[m\] \W \[\e[1;31m\]>\[\e[m\]\[\e[1;33m\]>\[\e[m\]\[\e[1;32m\]>\[\e[m\] "
+export PS1="\[\e[36m\]\[\e[m\] \W \[\e[1;31m\]>\[\e[m\]\[\e[1;32m\]>\[\e[m\] "
 PROMPT_COMMAND='((x = $? == 0 ? 6 : 1)); PS1=${PS1/3?m/3"$x"m};'
 
 
@@ -34,6 +34,7 @@ alias u='i; doas xbps-install -u xbps; doas xbps-install -u'
 alias r='doas xbps-remove -R'
 alias q='doas xbps-query -Rs'
 alias qi='doas xbps-query -Rm'
+alias diffdir='icdiff -r --show-no-spaces -x "*.po"'
 
 xevshort () {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }';
@@ -46,3 +47,12 @@ paintf () {
   "$HOME/.local/bin/color-scripts/${1:-$(shuf -n 1 -e ${_PAINTF_SCRIPTS[@]})}";
 }
 complete -W "${_PAINTF_SCRIPTS[@]}" paintf
+alias odoo='source ./.venv/bin/activate && ./odoo-bin -c ./odoo.conf'
+
+odoodev () {
+  source ./.venv/bin/activate;
+	find *addons* -regex '.*\.\(py\|xml\|html\|css\|js\|csv\)$' |\
+    entr -s "./odoo-bin -c ./odoo.conf -d ${1} -u ${2:-all} ${@:3}";
+}
+
+# [[ "$TERM" = "linux" && -n "FBTERM" ]] && export TERM=fbterm

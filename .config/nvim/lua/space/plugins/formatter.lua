@@ -18,8 +18,10 @@ return { -- Autoformat
 			typescript = { "prettierd" },
 			javascriptreact = { "prettierd" },
 			typescriptreact = { "prettierd" },
+			xml = { "prettierd" },
 			html = { "prettierd" },
 			djangohtml = { "prettierd" },
+      dart = { "dart format" },
 		},
 	},
 	init = function()
