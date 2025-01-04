@@ -8,10 +8,11 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.expandtab = true -- false
-vim.opt.shiftwidth = 2 -- 4
-vim.opt.tabstop = 2 -- 4
-vim.opt.softtabstop = 2 -- 4
+-- vim.opt.expandtab = true -- convert inserted tabs to spaces
+vim.opt.tabstop = 4    -- how many spaces a tab char equals
+vim.opt.shiftwidth = 4 -- inserted taps width (better to be same as tabstop)
+vim.opt.softtabstop = 0 -- spaces when you press tab or backspace: default is 0
+
 vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.breakindent = true -- Enable break indent
