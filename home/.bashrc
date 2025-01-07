@@ -54,5 +54,6 @@ odoodev () {
 	find *addons* -regex '.*\.\(py\|xml\|html\|css\|js\|csv\)$' |\
     entr -s "./odoo-bin -c ./odoo.conf -d ${1} -u ${2:-all} ${@:3}";
 }
+alias emulaunch="~/Android/emulator/emulator -avd nexus -dns-server"
 
 # [[ "$TERM" = "linux" && -n "FBTERM" ]] && export TERM=fbterm

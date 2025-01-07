@@ -1,14 +1,13 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	opts = {
-		-- Automatically install missing parsers when entering buffer
-		auto_install = true,
-		indent = { enable = true },
-
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = false,
-		},
-	},
+	config = function()
+		require("nvim-treesitter.configs").setup({ ---@diagnostic disable-line
+			ensure_installed = { "vim", "vimdoc", "markdown", "markdown_inline" },
+			sync_install = false,
+			auto_install = false,
+			highlight = { enable = true },
+			indent = { enable = true },
+		})
+	end,
 }

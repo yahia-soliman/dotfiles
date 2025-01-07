@@ -192,7 +192,7 @@ return { -- LSP Configuration & Plugins
 			"stylua", -- Used to format Lua code
 			"cssls",
 			"eslint",
-			"tsserver",
+			"ts_ls",
 			"prettierd",
 			"tailwindcss",
 			"black",
