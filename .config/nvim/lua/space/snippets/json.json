@@ -1,0 +1,14 @@
+{
+  "friendly-snippet": {
+    "prefix": "snippet",
+    "description": "Create a new firendly snippets snippet",
+    "body": [
+      "\"${1:shortcut}\": {",
+      "\t\"prefix\": \"${1:shortcut}\",",
+      "\t\"description\": \"${2}\",",
+      "\t\"body\": \"${3}\"",
+      "}"
+    ],
+    "scope": "snippets/test.json"
+  }
+}
