@@ -8,7 +8,6 @@
       "\t\"description\": \"${2}\",",
       "\t\"body\": \"${3}\"",
       "}"
-    ],
-    "scope": "snippets/test.json"
+    ]
   }
 }

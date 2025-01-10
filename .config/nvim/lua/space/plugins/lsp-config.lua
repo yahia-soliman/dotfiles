@@ -149,7 +149,7 @@ return { -- LSP Configuration & Plugins
 
 			-- pylsp = {},
 			html = {
-				filetypes = { "html", "htmldjango", "javascript" },
+				filetypes = { "html", "htmldjango", "javascript", "gotmpl" },
 			},
 			pyright = {
 				settings = {

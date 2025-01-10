@@ -1,25 +1,25 @@
 {
 	"Curlies": {
 	  "prefix": "x",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ $1 }}"],
 	  "description": "Wrap in Go Template's double curly brackets"
 	},
 	"Dot": {
 	  "prefix": "xx",
-		"scope": "html, json",
+		"scope": "gotmpl",
 		"body": ["{{ . }}"],
 	  "description": "Dot"
 	},
 	"Return": {
 	  "prefix": "ret",
-		"scope": "html, json",
+		"scope": "gotmpl",
 		"body": ["{{ return $0 }}"],
 	  "description": "return statement"
 	},
 	"If": {
 	  "prefix": "if",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": [
 			"{{ if $1 }}", 
 				"\t$0", 
@@ -29,13 +29,13 @@
 	},
 	"If inline": {
 	  "prefix": "ifi",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": "{{ if $1 }} $0 {{ end }}",
 	  "description": "If inline"
 	},
 	"If/Else": {
 	  "prefix": "ife",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": [
 			"{{ if $1 }}", 
 				"\t0",
@@ -47,7 +47,7 @@
 	},
 	"If/Else If": {
 	  "prefix": "ifei",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": [
 			"{{ if $1 }}",
 				"\t$0",
@@ -59,7 +59,7 @@
 	},
 	"With": {
 	  "prefix": "with",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": [
 			"{{ with $1 }}",
 				"\t$0",
@@ -69,7 +69,7 @@
 	},
 	"With Else": {
 	  "prefix": "withe",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": [
 			"{{ with $1 }}",
 				"\t$0",
@@ -81,7 +81,7 @@
 	},
 	"Range": {
 	  "prefix": "range",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": [
 			"{{ range $1 }}",
 				"\t$0",
@@ -91,86 +91,86 @@
 	},
 	"Scratch": {
 	  "prefix": "scra",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ ${1:.Scratch}.${2|Set,Get,Add,SetInMap,Delete,GetSortedMapValues|} $3 }}"],
 	  "description": "Scratch method, either as .Scratch or any other"
 	},
 	"Partial": {
 	  "prefix": "partial",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ partial \"$1\" ${2:.} }}"],
 	  "description": "Partial"
 	},
 	"PartialCached": {
 	  "prefix": "partialc",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ partialCached \"$1\" ${2:.} ${0:$variant} }}"],
 	  "description": "Partial cached with a variant"
 	},
 	"Partial without curlies": {
 	  "prefix": "xpartial",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["partial \"$1\" ${2:.}"],
 	  "description": "Partial when stored in a variable does not need curlies"
 	},
 	"Template": {
 	  "prefix": "template",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ template \"$1\" ${2:.} }}"],
 	  "description": "Template"
 	},
 	"Block": {
 	  "prefix": "block",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ block \"${1:main}\" ${2:.} }}", "\t$3", "{{ end }}"],
 	  "description": "Block"
 	},
 	"Block define": {
 	  "prefix": "define",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ define \"${1:main}\" }}", "\t$2", "{{ end }}"],
 	  "description": "Block define"
 	},
 	"Comment": {
 	  "prefix": "comm",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{/* $1 */}}"],
 	  "description": "Comment"
 	},
 	"Variable": {
 	  "prefix": "vars",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ \\$${1:var} ${2::=} $0 }}"],
 	  "description": "Variable"
 	},
 	"PrintF": {
 	  "prefix": "print",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["printf \"${1|%s,%v,%d,%x|}\" ${2:.}"],
 		"description": "Print a value",
 		"descriptionMoreURL": "https://golang.org/pkg/fmt/#hdr-Printing"
 	},
 	"String": {
 	  "prefix": "string",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ printf \"${1:Something about} %s\" $2 }}"],
 	  "description": "Print a string"
 	},
 	"Debug": {
 	  "prefix": "debug",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ printf \"%#v\" $1 }}"],
 	  "description": "Debug"
 	},
 	"Error": {
 	  "prefix": "error",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": ["{{ errorf \"%#v\" $1 }}"],
 	  "description": "Error"
 	},
 	"CommentBlock": {
 	  "prefix": "commblock",
-		"scope": "html,json",
+		"scope": "gotmpl",
 		"body": [
 			"{{/*",
 				"\t${1:Description}",
