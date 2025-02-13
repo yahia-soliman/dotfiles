@@ -1,14 +1,6 @@
 return {
 	"windwp/nvim-ts-autotag",
-	ft = {
-		"xml",
-		"html",
-		"htmldjango",
-		"javascript",
-		"typescript",
-		"javascriptreact",
-		"typescriptreact",
-	},
+	event = "InsertEnter",
 	config = function()
 		require("nvim-ts-autotag").setup()
 	end,

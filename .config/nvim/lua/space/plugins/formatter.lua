@@ -1,6 +1,6 @@
 return { -- Autoformat
 	"stevearc/conform.nvim",
-
+	enabled = false,
 	-- for type hints
 	---@module "conform"
 	---@type conform.setupOpts

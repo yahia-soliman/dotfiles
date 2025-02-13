@@ -15,6 +15,9 @@ super + Return
 super + o
 	rofi -matching fuzzy -show drun
 
+super + m
+	rofi -modi emoji -show emoji -kb-secondary-copy "" -kb-custom-1 Ctrl+c
+
 # screenshot to clipboard
 Print
 	maim --select ~/files/screenshots/$(date +%F-%H%M%S).png
