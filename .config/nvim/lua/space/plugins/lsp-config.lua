@@ -15,6 +15,7 @@ return { -- LSP Configuration & Plugins
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
+		require("lspconfig").gleam.setup({})
 		-- Brief aside: **What is LSP?**
 		--
 		-- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -135,7 +136,7 @@ return { -- LSP Configuration & Plugins
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
 			html = {
-				filetypes = { "html", "htmldjango", "javascript", "gotmpl" },
+				filetypes = { "html", "htmldjango", "javascript", "gotmpl", "vue" },
 			},
 			pyright = {
 				settings = {
@@ -161,6 +162,21 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
+			volar = {
+				init_options = { vue = { hybridMode = false } },
+			},
+			ts_ls = {
+				init_options = {
+					plugins = {
+						{
+							name = "@vue/typescript-plugin",
+							tsdk = vim.fn.stdpath("data")
+								.. "mason/packages/vue-language-server/node_modules/@vue/language-server",
+							languages = { "vue" },
+						},
+					},
+				},
+			},
 		}
 
 		-- Ensure the servers and tools above are installed
@@ -177,12 +193,13 @@ return { -- LSP Configuration & Plugins
 		vim.list_extend(ensure_installed, {
 			"cssls",
 			"eslint",
-			"ts_ls",
 			"tailwindcss",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 		require("mason-lspconfig").setup({
+			automatic_installation = false,
+			ensure_installed = ensure_installed,
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
