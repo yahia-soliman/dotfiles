@@ -170,7 +170,7 @@ return { -- LSP Configuration & Plugins
 					plugins = {
 						{
 							name = "@vue/typescript-plugin",
-							tsdk = vim.fn.stdpath("data")
+							location = vim.fn.stdpath("data")
 								.. "mason/packages/vue-language-server/node_modules/@vue/language-server",
 							languages = { "vue" },
 						},
@@ -192,7 +192,7 @@ return { -- LSP Configuration & Plugins
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"cssls",
-			"eslint",
+			"biome",
 			"tailwindcss",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

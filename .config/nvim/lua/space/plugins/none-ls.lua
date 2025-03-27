@@ -11,7 +11,6 @@ return {
 		local null_ls = require("null-ls")
 		null_ls.setup({
 			sources = {
-				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
 				null_ls.builtins.diagnostics.codespell,
@@ -20,7 +19,6 @@ return {
 				null_ls.builtins.diagnostics.markuplint,
 				null_ls.builtins.formatting.tidy, -- html, xml (needs tidy binary)
 				null_ls.builtins.formatting.dart_format, -- needs dart binary
-				null_ls.builtins.diagnostics.write_good,
 				null_ls.builtins.formatting.sqlfluff.with({
 					extra_args = { "--dialect", "postgres" },
 				}),
