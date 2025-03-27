@@ -19,15 +19,13 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.diagnostics.markuplint,
 				null_ls.builtins.formatting.tidy, -- html, xml (needs tidy binary)
-				null_ls.builtins.formatting.dart_format, -- needs dart binary
-				null_ls.builtins.diagnostics.write_good,
+				-- null_ls.builtins.formatting.dart_format, -- needs dart binary
 				null_ls.builtins.formatting.sqlfluff.with({
 					extra_args = { "--dialect", "postgres" },
 				}),
 				-- null_ls.builtins.formatting.prisma_format, -- needs prisma binary
 			},
 		})
-
 		require("mason-tool-installer").setup({
 			ensure_installed = {
 				"prettierd",

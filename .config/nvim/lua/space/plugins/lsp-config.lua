@@ -15,7 +15,7 @@ return { -- LSP Configuration & Plugins
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		require("lspconfig").gleam.setup({})
+		-- require("lspconfig").gleam.setup({})
 		-- Brief aside: **What is LSP?**
 		--
 		-- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -162,9 +162,9 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
-			volar = {
-				init_options = { vue = { hybridMode = false } },
-			},
+			-- volar = {
+			-- 	init_options = { vue = { hybridMode = false } },
+			-- },
 			ts_ls = {
 				init_options = {
 					plugins = {
@@ -189,8 +189,7 @@ return { -- LSP Configuration & Plugins
 
 		-- You can add other tools here that you want Mason to install
 		-- for you, so that they are available from within Neovim.
-		local ensure_installed = vim.tbl_keys(servers or {})
-		vim.list_extend(ensure_installed, {
+		local ensure_installed = vim.tbl_keys(servers or {}) vim.list_extend(ensure_installed, {
 			"cssls",
 			"eslint",
 			"tailwindcss",
