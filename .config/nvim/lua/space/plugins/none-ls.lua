@@ -17,6 +17,7 @@ return {
 				null_ls.builtins.formatting.shfmt,
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.diagnostics.markuplint,
+				null_ls.builtins.diagnostics.phpstan,
 				null_ls.builtins.formatting.tidy, -- html, xml (needs tidy binary)
 				-- null_ls.builtins.formatting.dart_format, -- needs dart binary
 				null_ls.builtins.formatting.sqlfluff.with({
@@ -34,8 +35,8 @@ return {
 				"shfmt",
 				"stylua",
 				"markuplint",
-				"write-good",
 				"sqlfluff",
+				"phpstan",
 			},
 		})
 	end,

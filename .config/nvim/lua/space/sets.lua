@@ -9,7 +9,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- vim.opt.expandtab = true -- convert inserted tabs to spaces
-vim.opt.tabstop = 4    -- how many spaces a tab char equals
+vim.opt.tabstop = 4 -- how many spaces a tab char equals
 vim.opt.shiftwidth = 4 -- inserted taps width (better to be same as tabstop)
 vim.opt.softtabstop = 0 -- spaces when you press tab or backspace: default is 0
 
@@ -28,7 +28,7 @@ vim.opt.mouse = "a" -- Enable mouse mode, can be useful for resizing splits for 
 vim.opt.showmode = false -- It's already in the status line
 vim.opt.signcolumn = "yes" -- Keep signcolumn on by default
 vim.opt.cursorline = false -- Show which line your cursor is on
--- vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
 
 vim.opt.ignorecase = true -- Case-insensitive searching
 vim.opt.smartcase = true -- UNLESS \C or one or more capital letters in the search term

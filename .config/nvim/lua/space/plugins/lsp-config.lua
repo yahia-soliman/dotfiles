@@ -5,13 +5,7 @@ return { -- LSP Configuration & Plugins
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-		-- Useful status updates for LSP.
-		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 		{ "j-hui/fidget.nvim", opts = {} },
-
-		-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-		-- used for completion, annotations and signatures of Neovim apis
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
@@ -115,6 +109,19 @@ return { -- LSP Configuration & Plugins
 						callback = vim.lsp.buf.clear_references,
 					})
 				end
+
+				-- add some icons to the error messages
+				vim.diagnostic.config({
+					virtual_text = true,
+					signs = {
+						text = {
+							[vim.diagnostic.severity.ERROR] = '',
+							[vim.diagnostic.severity.WARN] = '',
+							[vim.diagnostic.severity.INFO] = '',
+							[vim.diagnostic.severity.HINT] = '',
+						}
+					}
+				})
 			end,
 		})
 
@@ -162,9 +169,9 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
-			-- volar = {
-			-- 	init_options = { vue = { hybridMode = false } },
-			-- },
+			volar = {
+				init_options = { vue = { hybridMode = false } },
+			},
 			ts_ls = {
 				init_options = {
 					plugins = {
@@ -193,6 +200,7 @@ return { -- LSP Configuration & Plugins
 			"cssls",
 			"biome",
 			"tailwindcss",
+			"intelephense",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
