@@ -1,23 +1,37 @@
+[include]
+  path = ~/.config/catppuccin.gitconfig
+
 [user]
   name = Yahia
   email = yahia.soliman@digizilla.net
+
 [core]
   editor = nvim
+  pager = delta
+
 [color]
   ui = true
+
 [init]
   defaultBranch = main
+
 [help]
   autocorrect = 1
+
 [alias]
   s = status
   a = add  .
   c = commit -m
   cc = commit --amend -m
   ac = !git a && git c
+  undo = reset --soft HEAD^
   p = push
   pr = pull --rebase
   ls = log --graph --decorate --pretty=format:'%C(3)%h %C(4)[%cn] %C(8)%s %C(1)%d'
   alias = !git config -l | rg alias | cut -c 7- | sed 's/=/\t/'
+
 [protocol "file"]
-	allow = always
+  allow = always
+
+[delta]
+  features = catppuccin-mocha decorations

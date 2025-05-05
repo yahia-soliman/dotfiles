@@ -12,6 +12,12 @@ export PS1="\[\e[36m\]\[\e[m\] \W \[\e[1;31m\]>\[\e[m\]\[\e[1;32m\]>\[\e[m\] 
 PROMPT_COMMAND='((x = $? == 0 ? 6 : 1)); PS1=${PS1/3?m/3"$x"m};'
 
 alias grep='grep --color=auto'
+alias c='cd $(find . -type d -print | fzy)'
+alias conf='vi $(find -L ~/.config/ -type f -print | fzy)'
+alias tn='tmux new -s'
+alias ta='tmux attach -t'
+alias tk='tmux kill-session -t'
+alias ui='pnpm dlx shadcn@latest'
 
 alias pipi='pip install --break-system-packages --user'
 alias gcx='gcc -Wall -pedantic -Werror -Wextra -std=gnu89'
@@ -24,6 +30,9 @@ alias u='sudo apt update && sudo apt upgrade'
 alias r='sudo aptitude purge'
 alias q='apt-cache search'
 alias aptrep='sudo add-apt-repository'
+
+# Alias completion
+command -v _complete_alias && echo YES && eval "$(alias | sed -E 's/alias ([^=]+)=.*/complete -F _complete_alias \1/')"
 
 xevshort() {
 	xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
@@ -42,8 +51,23 @@ odoodev() {
 	./odoo-bin --addons-path=./addons/,./enterprise/,./${DB} \
 		--dev=xml -r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
 }
+odoodevcomm() {
+	local DB=${1}
+	local VER=$(basename $PWD)
+	./odoo-bin --addons-path=./addons/,./${DB} \
+		--dev=xml -r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
+}
+odoodevshell() {
+	local DB=${1}
+	local VER=$(basename $PWD)
+	./odoo-bin shell --addons-path=./addons/,./enterprise/,./${DB} \
+		-r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
+}
 dgzclone() {
 	git clone git@github.com:Digizilla/$1.git ${@:2}
 }
 alias emulaunch="~/Android/emulator/emulator -avd nexus -dns-server"
 # [[ "$TERM" = "linux" && -n "FBTERM" ]] && export TERM=fbterm
+
+
+alias artisan="./artisan"

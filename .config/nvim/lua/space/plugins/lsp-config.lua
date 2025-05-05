@@ -9,6 +9,7 @@ return { -- LSP Configuration & Plugins
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
+		local util = require("lspconfig.util")
 		-- require("lspconfig").gleam.setup({})
 		-- Brief aside: **What is LSP?**
 		--
@@ -115,12 +116,12 @@ return { -- LSP Configuration & Plugins
 					virtual_text = true,
 					signs = {
 						text = {
-							[vim.diagnostic.severity.ERROR] = '',
-							[vim.diagnostic.severity.WARN] = '',
-							[vim.diagnostic.severity.INFO] = '',
-							[vim.diagnostic.severity.HINT] = '',
-						}
-					}
+							[vim.diagnostic.severity.ERROR] = "",
+							[vim.diagnostic.severity.WARN] = "",
+							[vim.diagnostic.severity.INFO] = "",
+							[vim.diagnostic.severity.HINT] = "",
+						},
+					},
 				})
 			end,
 		})
@@ -173,6 +174,7 @@ return { -- LSP Configuration & Plugins
 				init_options = { vue = { hybridMode = false } },
 			},
 			ts_ls = {
+				root_dir = util.root_pattern("tsconfig.json", "jsconfig.json", "package.json"),
 				init_options = {
 					plugins = {
 						{
@@ -181,6 +183,22 @@ return { -- LSP Configuration & Plugins
 								.. "mason/packages/vue-language-server/node_modules/@vue/language-server",
 							languages = { "vue" },
 						},
+					},
+				},
+			},
+			intelephense = {
+				settings = {
+					php = {
+						environment = {
+							includePaths = { "./vendor/pestphp" },
+						},
+					},
+				},
+				commands = {
+					IntelephenseIndex = {
+						function()
+							vim.lsp.buf.execute_command({ command = "intelephense.index.workspace" })
+						end,
 					},
 				},
 			},
@@ -196,11 +214,11 @@ return { -- LSP Configuration & Plugins
 
 		-- You can add other tools here that you want Mason to install
 		-- for you, so that they are available from within Neovim.
-		local ensure_installed = vim.tbl_keys(servers or {}) vim.list_extend(ensure_installed, {
+		local ensure_installed = vim.tbl_keys(servers or {})
+		vim.list_extend(ensure_installed, {
 			"cssls",
-			"biome",
 			"tailwindcss",
-			"intelephense",
+			"lexical",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
