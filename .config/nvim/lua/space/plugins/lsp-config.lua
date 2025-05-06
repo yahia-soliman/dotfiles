@@ -5,17 +5,11 @@ return { -- LSP Configuration & Plugins
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-		-- Useful status updates for LSP.
-		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 		{ "j-hui/fidget.nvim", opts = {} },
-
-		-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
-		-- used for completion, annotations and signatures of Neovim apis
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		require("lspconfig").gleam.setup({})
+		-- require("lspconfig").gleam.setup({})
 		-- Brief aside: **What is LSP?**
 		--
 		-- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -115,6 +109,19 @@ return { -- LSP Configuration & Plugins
 						callback = vim.lsp.buf.clear_references,
 					})
 				end
+
+				-- add some icons to the error messages
+				vim.diagnostic.config({
+					virtual_text = true,
+					signs = {
+						text = {
+							[vim.diagnostic.severity.ERROR] = "",
+							[vim.diagnostic.severity.WARN] = "",
+							[vim.diagnostic.severity.INFO] = "",
+							[vim.diagnostic.severity.HINT] = "",
+						},
+					},
+				})
 			end,
 		})
 
@@ -191,8 +198,8 @@ return { -- LSP Configuration & Plugins
 		-- for you, so that they are available from within Neovim.
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
+			"eslint",
 			"cssls",
-			"biome",
 			"tailwindcss",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

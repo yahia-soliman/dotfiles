@@ -13,15 +13,14 @@ return {
 			sources = {
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
-				null_ls.builtins.diagnostics.codespell,
 				null_ls.builtins.formatting.shfmt,
 				null_ls.builtins.formatting.stylua,
+				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.diagnostics.markuplint,
-				null_ls.builtins.formatting.tidy, -- html, xml (needs tidy binary)
-				null_ls.builtins.formatting.dart_format, -- needs dart binary
 				null_ls.builtins.formatting.sqlfluff.with({
 					extra_args = { "--dialect", "postgres" },
 				}),
+				-- null_ls.builtins.formatting.dart_format, -- needs dart binary
 				-- null_ls.builtins.formatting.prisma_format, -- needs prisma binary
 			},
 		})
@@ -31,11 +30,9 @@ return {
 				"prettierd",
 				"black",
 				"isort",
-				"codespell",
 				"shfmt",
 				"stylua",
 				"markuplint",
-				"write-good",
 				"sqlfluff",
 			},
 		})
