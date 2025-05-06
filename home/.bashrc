@@ -16,6 +16,10 @@ alias ll='ls -l'
 alias grep='grep --color=auto'
 alias reboot='doas reboot; exit'
 alias poweroff='doas poweroff; exit'
+alias tn='tmux new -s'
+alias ta='tmux attach -t'
+alias tk='tmux kill-session -t'
+alias ui='pnpm dlx shadcn@latest'
 
 alias pipi='pip install --break-system-packages --user'
 alias gcx='gcc -Wall -pedantic -Werror -Wextra -std=gnu89'
@@ -44,10 +48,24 @@ complete -W "${_PAINTF_SCRIPTS[@]}" paintf
 
 odoodev() {
 	local DB=${1}
-	./odoo-bin -c ./odoo.conf --dev=xml \
-		--addons-path=./addons/,./enterprise/,./${DB} -d ${DB/\//} ${@:2}
-	# find *addons* -regex '.*\.\(py\|xml\|html\|css\|js\|csv\)$' |\
-	# entr -s "./odoo-bin -c ./odoo.conf -d ${1} -u ${2:-all} ${@:3}";
+	local VER=$(basename $PWD)
+	./odoo-bin --addons-path=./addons/,./enterprise/,./${DB} \
+		--dev=xml -r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
+}
+odoodevcomm() {
+	local DB=${1}
+	local VER=$(basename $PWD)
+	./odoo-bin --addons-path=./addons/,./${DB} \
+		--dev=xml -r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
+}
+odoodevshell() {
+	local DB=${1}
+	local VER=$(basename $PWD)
+	./odoo-bin shell --addons-path=./addons/,./enterprise/,./${DB} \
+		-r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
+}
+dgzclone() {
+	git clone git@github.com:Digizilla/$1.git ${@:2}
 }
 alias emulaunch="~/Android/emulator/emulator -avd nexus -dns-server"
 
