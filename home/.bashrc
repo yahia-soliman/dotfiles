@@ -19,6 +19,7 @@ alias ta='tmux attach -t'
 alias tk='tmux kill-session -t'
 alias ui='pnpm dlx shadcn@latest'
 
+alias cloc="cloc --by-file --exclude-ext=po,pot,rst,md,svg,css,html"
 alias pipi='pip install --break-system-packages --user'
 alias gcx='gcc -Wall -pedantic -Werror -Wextra -std=gnu89'
 alias diffdir='icdiff -r --show-no-spaces -x "*.po"'
@@ -64,7 +65,7 @@ odoodevshell() {
 		-r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
 }
 dgzclone() {
-	git clone git@github.com:Digizilla/$1.git ${@:2}
+	git clone git@dgz:Digizilla/$1.git ${@:2}
 }
 alias emulaunch="~/Android/emulator/emulator -avd nexus -dns-server"
 # [[ "$TERM" = "linux" && -n "FBTERM" ]] && export TERM=fbterm
