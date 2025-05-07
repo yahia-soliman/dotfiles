@@ -29,11 +29,11 @@ alias diffdir='icdiff -r --show-no-spaces -x "*.po"'
 alias yt='yt-dlp --ignore-errors --continue --no-overwrites --download-archive "./done.txt" --output "./%(playlist_index)003d - %(title)s.%(ext)s" -S' # res:720
 alias y3='yt-dlp -f "bestaudio[ext=m4a]" --ignore-errors --continue --no-overwrites --download-archive "./done.txt" --output "./%(playlist_index)003d - %(title)s.%(ext)s"'
 
-alias i='doas xbps-install -S'
-alias u='i; doas xbps-install -u xbps; doas xbps-install -u'
-alias r='doas xbps-remove -R'
-alias q='doas xbps-query -Rs'
-alias qi='doas xbps-query -Rm'
+alias i='paru -S --needed'
+alias u='paru'
+alias r='paru -Rns'
+alias q='paru -Q'
+alias qi='paru -Qi'
 
 xevshort() {
 	xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'

@@ -26,7 +26,9 @@ SYSTEM_UTILS=(
 DEV_TOOLS=(
 	gcc
 	python
-	node
+	nodejs
+	npm
+	pnpm
 	yazi
 	bat
 	neovim
