@@ -6,6 +6,10 @@ clear
 # PROGRAMS #
 ############
 SYSTEM_UTILS=(
+	nvidia
+	egl-wayland
+	polkit
+
 	1password
 	nerdfetch
 	fzf
@@ -38,6 +42,7 @@ DEV_TOOLS=(
 )
 
 DESKTOP=(
+	uwsm
 	hyprland
 	wofi
 	waybar
