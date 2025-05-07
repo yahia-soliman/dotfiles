@@ -23,9 +23,6 @@ if [ ! $ANDROID_HOME ]; then
   export JAVA_HOME="$ANDROID_HOME/openjdk"
   export PATH="$PATH:$JAVA_HOME/bin:$ANDROID_SDK_ROOT/bin:$ANDROID_HOME/flutter/bin:$HOME/.pub-cache/bin/"
 fi
-
-[[ ! $DISPLAY && $(tty) = "/dev/tty1" ]] && dbus-run-session startx
-
 if [[ "$TERM" = "linux" && $(tty) = "/dev/tty2" ]]; then
     echo -en "\e]P0222222" #black
     echo -en "\e]P8222222" #darkgrey

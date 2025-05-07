@@ -6,10 +6,7 @@ clear
 # PROGRAMS #
 ############
 SYSTEM_UTILS=(
-	htop
-	btop
 	1password
-	neofetch
 	nerdfetch
 	fzf
 	zip
@@ -41,7 +38,8 @@ DEV_TOOLS=(
 )
 
 DESKTOP=(
-	hyperland
+	hyprland
+	wofi
 	waybar
 	hyprlock
 )
@@ -53,6 +51,8 @@ MEDIA=(
 FONTS=(
 	noto-fonts
 	noto-fonts-emoji
+	ttf-font-awesome
+	otf-geist-mono-nerd
 )
 
 FLATPAKS=(
@@ -90,7 +90,7 @@ install_packages() {
 
 	if [ ${#to_install[@]} -ne 0 ]; then
 		echo "Installing: ${to_install[*]}"
-		yay -S --noconfirm "${to_install[@]}"
+		paru -S --noconfirm "${to_install[@]}"
 	fi
 }
 
@@ -171,6 +171,9 @@ mkdir -p ~/.config ~/.local/bin
 ln -s ~/dotfiles/.config/* ~/.config/
 ln -sf ~/dotfiles/home/.* ~/
 ln -sf ~/dotfiles/bin/* ~/.local/bin/
+
+echo "Downloading a wallpaper to ~/.config/bg/"
+curl -sL https://w.wallhaven.cc/full/rr/wallhaven-rrv85q.png -o ~/.config/bg/keyboard.png
 
 #############
 # VI = NVIM #
