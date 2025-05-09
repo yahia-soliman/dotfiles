@@ -11,6 +11,8 @@ export NODE_PATH="$HOME/.local/lib/node_modules"
 # this will be useful if only this line is in the .npmrc
 # prefix = "${HOME}/.local"
 
+export PGUSER=postgres
+
 if uwsm check may-start; then
   exec uwsm start hyprland.desktop
 fi

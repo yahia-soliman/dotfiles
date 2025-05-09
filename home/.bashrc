@@ -21,6 +21,7 @@ alias ta='tmux attach -t'
 alias tk='tmux kill-session -t'
 alias ui='pnpm dlx shadcn@latest'
 
+alias cloc="cloc --by-file --exclude-ext=po,pot,rst,md,svg,css,html"
 alias pipi='pip install --break-system-packages --user'
 alias gcx='gcc -Wall -pedantic -Werror -Wextra -std=gnu89'
 alias checkforces='gcc main.c && diff output <(./a.out < input)'

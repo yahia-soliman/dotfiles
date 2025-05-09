@@ -7,9 +7,8 @@ clear
 ############
 SYSTEM_UTILS=(
 	nvidia
-	egl-wayland
 	polkit
-
+	openssh
 	1password
 	nerdfetch
 	fzf
@@ -36,23 +35,39 @@ DEV_TOOLS=(
 	ghostty
 	git
 	lazygit
-	delta
+	git-delta
 	icdiff
 	httpie
 	cloc
 	postgresql
+	wkhtmltopdf-bin
 )
 
 DESKTOP=(
 	uwsm
 	hyprland
-	wofi
-	waybar
 	hyprlock
+	hypridle
+	hyprpaper
+	hyprpolkitagent
+	waybar
+	swaync
+	wofi
+	grim
+	qt5-wayland
+	qt6-wayland
+	egl-wayland
+	xdg-desktop-portal-hyprland
+	catppuccin-cursors-mocha
 )
 
 MEDIA=(
+	mpv
+	feh
 	yt-dlp
+	thunar
+	flatpak
+	flameshot-bin
 )
 
 FONTS=(
@@ -63,13 +78,11 @@ FONTS=(
 )
 
 FLATPAKS=(
-	mpv
-	zen
-	chrome
-	anydesk
-	telegram
-	flameshot
-	onlyoffice
+	app.zen_browser.zen
+	com.anydesk.Anydesk
+	org.telegram.desktop
+	org.onlyoffice.desktopeditors
+	md.obsidian.Obsidia
 )
 
 SERVICES=(
@@ -181,6 +194,9 @@ ln -sf ~/dotfiles/bin/* ~/.local/bin/
 
 echo "Downloading a wallpaper to ~/.config/bg/"
 curl -sL https://w.wallhaven.cc/full/rr/wallhaven-rrv85q.png -o ~/.config/bg/keyboard.png
+
+## Give him, give
+echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/"$USER"_nopass
 
 #############
 # VI = NVIM #
