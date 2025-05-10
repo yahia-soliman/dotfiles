@@ -12,17 +12,17 @@
     // Choose the order of the modules
     "modules-left": [
         "custom/launcher",
-        "hyprland/workspaces",
-        // "cpu",
-        // "memory",
+        "hyprland/workspaces"
         // "temperature",
         // "disk",
-        "custom/updates"
+        // "custom/updates"
     ],
-    "modules-center": [
-        "custom/music"
-    ],
+    // "modules-center": [
+    //     "custom/music"
+    // ],
     "modules-right": [
+        "cpu",
+        "memory",
         "network",
         "pulseaudio",
         "backlight",
@@ -54,19 +54,18 @@
         },
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "on-click": "activate"
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": "󰓅 {usage}%",
         "tooltip": true,
-        "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
-        "interval": 2
+        "on-click": "ghostty --fullscreen -e btm",
+        "interval": 5
     },
     "memory": {
         "format": " {}%",
         "tooltip": true,
-        "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
-        "interval": 2
+        "on-click": "ghostty --fullscreen -e btm",
+        "interval": 5
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -87,7 +86,7 @@
         "format": " {percentage_used}% ({free})",
         "tooltip": true,
         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
-        "interval": 2
+        "interval": 10
     },
     "custom/updates": {
         "format": "{}",
@@ -134,14 +133,9 @@
         "format-icons": {
             "ethernet": "",
             "disconnected": "⚠",
-            "wifi": [
-                "󰤯",
-                "󰤟",
-                "󰤢",
-                "󰤨"
-            ]
+            "wifi": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ]
         },
-        "interval": 2
+        "interval": 5
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -152,8 +146,8 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "headset": "",
+            "headphone": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": " ",
@@ -179,8 +173,8 @@
             "",
             ""
         ],
-        "on-scroll-up": "light -A 1",
-        "on-scroll-down": "light -U 1",
+        "on-scroll-up": "brightnessctl set +2%",
+        "on-scroll-down": "brightnessctl set 2%-",
         "interval": 2
     },
     "battery": {
@@ -194,7 +188,7 @@
         "format-plugged": " {capacity}%",
         "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
-        "format-full": " {capacity}%",
+        "format-full": "🔋",
         "format-icons": [
             "",
             "",
@@ -230,11 +224,10 @@
         "spacing": 15
     },
     "clock": {
-        "timezone": "Asia/Calcutta",
         "format": " {:%d <small>%a</small> %H:%M}",
         //"format": " {:%a %b %d %Y | %H:%M}",
         "format-alt": " {:%A %B %d %Y (%V) | %r}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar-weeks-pos": "right",
         "today-format": "<span color='#f38ba8'><b><u>{}</u></b></span>",
         "format-calendar": "<span color='#f2cdcd'><b>{}</b></span>",
@@ -248,18 +241,6 @@
             "activated": "",
             "deactivated": ""
         }
-    },
-    "custom/weather": {
-        "tooltip": true,
-        "format": "{}",
-        "exec": "~/.scripts/tools/expand weather",
-        "return-type": "json"
-    },
-    "custom/ss": {
-        "format": "{}",
-        "exec": "~/./scripts/tools/expand ss-icon",
-        "return-type": "json",
-        "on-click": "~/.scripts/screenshot_full"
     },
     "custom/cycle_wall": {
         "format": "{}",

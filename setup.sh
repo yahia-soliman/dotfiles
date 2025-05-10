@@ -11,15 +11,18 @@ SYSTEM_UTILS=(
 	openssh
 	1password
 	nerdfetch
+	less
 	fzf
 	zip
 	unzip
 	wget
 	curl
 	fd
+	bottom
 	ripgrep
 	tealdeer
 	bash-completion
+	brightnessctl
 )
 
 DEV_TOOLS=(
