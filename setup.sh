@@ -54,11 +54,11 @@ DESKTOP=(
 	hyprpaper
 	waybar
 	swaync
-	rofi
 	grim
 	qt5-wayland
 	qt6-wayland
 	egl-wayland
+	rofi-wayland
 	hyprpolkitagent
 	papirus-icon-theme
 	catppuccin-cursors-mocha
