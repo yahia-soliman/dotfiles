@@ -52,16 +52,17 @@ DESKTOP=(
 	hyprlock
 	hypridle
 	hyprpaper
-	hyprpolkitagent
 	waybar
 	swaync
-	wofi
+	rofi
 	grim
 	qt5-wayland
 	qt6-wayland
 	egl-wayland
-	xdg-desktop-portal-hyprland
+	hyprpolkitagent
+	papirus-icon-theme
 	catppuccin-cursors-mocha
+	xdg-desktop-portal-hyprland
 )
 
 MEDIA=(
