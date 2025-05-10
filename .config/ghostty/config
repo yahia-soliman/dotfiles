@@ -1,5 +1,5 @@
 theme = catppuccin-mocha
-font-family = "Geist Mono"
+font-family = "GeistMono Nerd Font"
 font-feature = -liga
 font-size = 12
 window-padding-x = 8,2
@@ -10,4 +10,5 @@ cursor-style = block
 cursor-style-blink = false
 cursor-invert-fg-bg = true
 shell-integration-features = no-cursor
+background-opacity = 0.9
 # gtk-titlebar = false

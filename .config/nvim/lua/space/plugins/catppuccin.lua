@@ -3,7 +3,7 @@ return {
 	priority = 999,
 	config = function()
 		require("catppuccin").setup({
-			-- transparent_background = true,
+			transparent_background = true,
 			integrations = {
 				cmp = true,
 				gitsigns = true,
