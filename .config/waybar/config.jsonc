@@ -12,7 +12,8 @@
     // Choose the order of the modules
     "modules-left": [
         "custom/launcher",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "wlr/taskbar"
         // "temperature",
         // "disk",
         // "custom/updates"
@@ -42,8 +43,8 @@
         "return-type": "json",
         // "on-click": "pkill tofi || sleep 0.15 && tofi-drun -c ~/.config/tofi/tofi.launcher.conf",
         // "on-click-right": "pkill tofi || sleep 0.15 && tofi-run -c ~/.config/tofi/tofi.launcher.conf",
-        "on-click": "pkill wofi || wofi --show drun -n",
-        "on-click-right": "pkill wofi || wofi --show run -n",
+        "on-click": "pkill rofi || rofi -show drun",
+        // "on-click-right": "pkill wofi || wofi --show run -n",
     },
     "hyprland/workspaces": {
         // "format": "{icon} {name}",
@@ -56,12 +57,19 @@
         "on-scroll-down": "hyprctl dispatch workspace e+1",
     },
     "cpu": {
+        "states": {
+            "critical": 95,
+            "warning": 85,
+        },
         "format": "󰓅 {usage}%",
         "tooltip": true,
         "on-click": "ghostty --fullscreen -e btm",
-        "interval": 5
     },
     "memory": {
+        "states": {
+            "critical": 90,
+            "warning": 80,
+        },
         "format": " {}%",
         "tooltip": true,
         "on-click": "ghostty --fullscreen -e btm",
@@ -276,5 +284,15 @@
         "exec": "~/.scripts/tools/expand arrow-icon",
         "on-click": "~/.scripts/tools/expand_toolbar",
         "return-type": "json"
+    },
+    "wlr/taskbar": {
+      "icon-theme": "Papirus-Dark",
+      "format": "{icon}",
+      "icon-size": 24,
+      "spacing": 0,
+      "on-click-middle": "close",
+      "tooltip-format": "{title}",
+      "ignore-list": [],
+      "on-click": "activate"
     }
 }

@@ -10,6 +10,7 @@ set -o vi
 export PS1="\[\e[36m\]\[\e[m\] \W \[\e[1;31m\]>\[\e[m\]\[\e[1;32m\]>\[\e[m\] "
 PROMPT_COMMAND='((x = $? == 0 ? 6 : 1)); PS1=${PS1/3?m/3"$x"m};'
 
+alias vi='PYTHONPATH=$(pwd) vi'
 alias ls='ls --color=auto'
 alias la='ls -la'
 alias ll='ls -l'

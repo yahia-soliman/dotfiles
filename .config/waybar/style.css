@@ -64,17 +64,33 @@
 #custom-cycle_wall,
 #custom-clipboard,
 #custom-ss,
-#custom-weather {
+#custom-weather,
+#taskbar {
   background-color: @surface0;
   color: @text;
   border-radius: 16px;
   padding: 0.5rem 1rem;
-  box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
-  margin-top: 10px;
-  /*
-    margin-bottom: 10px;
-*/
+  margin-top: 5px;
   margin-right: 10px;
+}
+
+#taskbar {
+  padding: 0px;
+  font-size: 0px;
+  background-color: transparent;
+}
+#taskbar button {
+  padding: 0px 5px;
+}
+
+#taskbar button *:hover,
+#taskbar button:hover {
+  background-color: transparent;
+  -gtk-icon-shadow: none;
+  -gtk-icon-effect: none;
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
 }
 
 /* =============================== */
@@ -170,9 +186,21 @@
 
 /* =============================== */
 /* System Monitoring Modules */
-#cpu,
 #temperature {
   color: @peach;
+}
+
+#cpu,
+#memory {
+  color: @green;
+}
+#cpu.warning,
+#memory.warning {
+  color: @peach;
+}
+#cpu.critical,
+#memory.critical {
+  color: @red;
 }
 
 #cpu {
@@ -183,7 +211,6 @@
 }
 
 #memory {
-  color: @yellow;
   margin-right: 0px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -335,10 +362,10 @@
   color: @maroon;
 }
 
-#battery.critical:not(.charging) {
+.critical:not(.charging) {
   color: @red;
   animation-name: blink;
-  animation-duration: 1s;
+  animation-duration: 300ms;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
@@ -346,7 +373,6 @@
 
 @keyframes blink {
   to {
-    background: @red;
     color: @surface1;
   }
 }
@@ -409,7 +435,7 @@
   color: @mauve;
   padding-right: 14px;
   padding-left: 11px;
-  font-size: 10px;
+  font-size: 13px;
 }
 
 /* vim: ft=less */
