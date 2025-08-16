@@ -13,6 +13,13 @@ export NODE_PATH="$HOME/.local/lib/node_modules"
 
 export PGUSER=postgres
 
+if [[ -d "$HOME/Android" && ! $ANDROID_HOME ]]; then
+  export ANDROID_HOME="$HOME/Android"
+  export ANDROID_SDK_ROOT="$ANDROID_HOME/cmdline-tools/latest"
+  export JAVA_HOME="$ANDROID_HOME/openjdk"
+  export PATH="$PATH:$JAVA_HOME/bin:$ANDROID_SDK_ROOT/bin:$ANDROID_HOME/flutter/bin:$ANDROID_HOME/platform-tools:$HOME/.pub-cache/bin"
+fi
+
 if uwsm check may-start; then
   exec uwsm start hyprland.desktop
 fi
