@@ -169,7 +169,7 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
-			volar = {
+			vue_ls = {
 				init_options = { vue = { hybridMode = false } },
 			},
 			ts_ls = {

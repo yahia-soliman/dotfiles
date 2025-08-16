@@ -55,7 +55,7 @@ return {
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
 		local live_grep = function()
-			builtin.live_grep({ glob_pattern = { "!*.po", "!*.pot" }, disable_coordinates = true })
+			builtin.live_grep({ glob_pattern = { "!*.po", "!*.pot", "!*.text.js", "!test_*", "!tests/*" }, disable_coordinates = false })
 		end
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
