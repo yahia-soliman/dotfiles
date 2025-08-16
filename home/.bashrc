@@ -52,13 +52,15 @@ odoodev() {
 	local DB=${1}
 	local VER=$(basename $PWD)
 	./odoo-bin --addons-path=./addons/,./enterprise/,./${DB} \
-		--dev=xml -r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
+		--log-handler odoo.tools.convert:DEBUG \
+		--dev=all -r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
 }
 odoodevcomm() {
 	local DB=${1}
 	local VER=$(basename $PWD)
 	./odoo-bin --addons-path=./addons/,./${DB} \
-		--dev=xml -r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
+		--log-handler odoo.tools.convert:DEBUG \
+		--dev=all -r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
 }
 odoodevshell() {
 	local DB=${1}
