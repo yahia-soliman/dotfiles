@@ -14,8 +14,6 @@
         "custom/launcher",
         "hyprland/workspaces",
         "wlr/taskbar"
-        // "temperature",
-        // "disk",
         // "custom/updates"
     ],
     // "modules-center": [
@@ -24,6 +22,8 @@
     "modules-right": [
         "cpu",
         "memory",
+        "temperature",
+        "disk",
         "network",
         "pulseaudio",
         "backlight",
@@ -76,9 +76,8 @@
         "interval": 5
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 40,
+        "thermal-zone": 1,
+        "critical-threshold": 65,
         "format-critical": "{icon} {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
         "format-icons": [
@@ -86,14 +85,13 @@
             "",
             ""
         ],
-        "tooltip": true,
-        "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
-        "interval": 2
+        "on-click": "ghostty --fullscreen -e btm",
+        "interval": 60
     },
     "disk": {
-        "format": " {percentage_used}% ({free})",
+        "format": " {percentage_used}%",
         "tooltip": true,
-        "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
+        "on-click": "ghostty --fullscreen -e btm",
         "interval": 10
     },
     "custom/updates": {
