@@ -2,7 +2,7 @@
     "layer": "bottom", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     //"gtk-layer-shell": "false",
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 37, // Waybar height (to be removed for auto height)
     // "width": 2560, // Waybar width
     "spacing": 0, // Gaps between modules (0px) Adjusted in the css
     "margin-top": 0,
@@ -128,9 +128,9 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format": "{icon} {bandwidthTotalBytes}",
-        "format-disconnected": "{icon} No Internet",
+        "format-disconnected": "{icon} offline",
         "format-linked": " {ifname} (No IP)",
-        "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
+        "format-alt": " {bandwidthUpBytes} |  {bandwidthDownBytes}",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
         "tooltip-format-wifi": "{icon} {essid} ({signalStrength}%)",
         "tooltip-format-ethernet": "{icon} {ipaddr}/{cidr}",
@@ -138,7 +138,7 @@
         "on-click-right": "nm-connection-editor",
         "format-icons": {
             "ethernet": "",
-            "disconnected": "⚠",
+            "disconnected": "󰪎",
             "wifi": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ]
         },
         "interval": 5
@@ -230,9 +230,9 @@
         "spacing": 15
     },
     "clock": {
-        "format": " {:%d <small>%a</small> %H:%M}",
-        //"format": " {:%a %b %d %Y | %H:%M}",
-        "format-alt": " {:%A %B %d %Y (%V) | %r}",
+        "format": "󱑎 {:%d<small> %a</small> %I:%M}",
+        //"format": "󱑎 {:%a %b %d %Y | %H:%M}",
+        "format-alt": "󱑎 {:%A %B %d %Y (%V) | %r}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar-weeks-pos": "right",
         "today-format": "<span color='#f38ba8'><b><u>{}</u></b></span>",
