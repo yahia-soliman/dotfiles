@@ -1,4 +1,4 @@
-theme = catppuccin-mocha
+theme = light:Catppuccin Latte,dark:Catppuccin Mocha
 font-family = "GeistMono Nerd Font"
 font-feature = -liga
 font-size = 12

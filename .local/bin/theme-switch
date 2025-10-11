@@ -1,3 +1,4 @@
 #!/usr/bin/bash
-sed -i 's/dark/~~~~/;s/light/dark/;s/~~~~/light/' ~/.config/alacritty/alacritty.toml;
-sed -i 's/true/~~~~/;s/false/true/;s/~~~~/false/' ~/.config/gtk-3.0/settings.ini;
+IS_DARK=$(gsettings get org.gnome.desktop.interface color-scheme | grep dark)
+NEXT=$([ "$IS_DARK" ] && echo 'prefer-light' || echo 'prefer-dark')
+gsettings set org.gnome.desktop.interface color-scheme "$NEXT"
