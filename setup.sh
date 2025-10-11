@@ -6,10 +6,10 @@ clear
 # PROGRAMS #
 ############
 SYSTEM_UTILS=(
-	nvidia
+	# nvidia
 	polkit
 	openssh
-	1password
+	# 1password
 	nerdfetch
 	less
 	fzf
@@ -71,7 +71,7 @@ MEDIA=(
 	yt-dlp
 	thunar
 	flatpak
-	flameshot-bin
+	flameshot
 )
 
 FONTS=(
@@ -86,7 +86,7 @@ FLATPAKS=(
 	com.anydesk.Anydesk
 	org.telegram.desktop
 	org.onlyoffice.desktopeditors
-	md.obsidian.Obsidia
+	# md.obsidian.Obsidian
 )
 
 SERVICES=(
@@ -126,7 +126,7 @@ if ! command -v paru &>/dev/null; then
 	echo "Installing paru AUR helper"
 
 	sudo pacman -S --noconfirm --needed git base-devel
-	PARU_DIR=$(mktemp)
+	PARU_DIR=$(mktemp -d)
 	cd $PARU_DIR
 	git clone https://aur.archlinux.org/paru.git .
 	makepkg -si --noconfirm
@@ -192,7 +192,7 @@ fi
 ############
 echo "Linking dotfiles"
 mkdir -p ~/.config ~/.local/bin
-ln -s ~/dotfiles/.config/* ~/.config/
+ln -sf ~/dotfiles/.config/* ~/.config/
 ln -sf ~/dotfiles/home/.* ~/
 ln -sf ~/dotfiles/bin/* ~/.local/bin/
 
