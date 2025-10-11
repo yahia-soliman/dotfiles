@@ -169,9 +169,9 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
-			vue_ls = {
-				init_options = { vue = { hybridMode = false } },
-			},
+			-- vue_ls = {
+			-- 	init_options = { vue = { hybridMode = false } },
+			-- },
 			ts_ls = {
 				init_options = {
 					plugins = {
