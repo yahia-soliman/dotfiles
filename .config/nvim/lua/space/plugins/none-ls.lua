@@ -17,6 +17,7 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettierd,
 				null_ls.builtins.diagnostics.markuplint,
+				null_ls.builtins.formatting.xmllint, -- needs xmllint binary
 				null_ls.builtins.formatting.sqlfluff.with({
 					extra_args = { "--dialect", "postgres" },
 				}),

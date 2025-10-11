@@ -57,6 +57,6 @@ $suspend)
 	systemctl suspend
 	;;
 $logout)
-	confirm && logout
+	confirm && uwsm stop
 	;;
 esac

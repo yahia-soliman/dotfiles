@@ -47,6 +47,7 @@ paintf() {
 	"$HOME/.local/bin/color-scripts/${1:-$(shuf -n 1 -e ${_PAINTF_SCRIPTS[@]})}"
 }
 complete -W "${_PAINTF_SCRIPTS[@]}" paintf
+paintf
 
 odoodev() {
 	local DB=${1}

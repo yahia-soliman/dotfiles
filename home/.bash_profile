@@ -20,6 +20,10 @@ if [[ -d "$HOME/Android" && ! $ANDROID_HOME ]]; then
   export PATH="$PATH:$JAVA_HOME/bin:$ANDROID_SDK_ROOT/bin:$ANDROID_HOME/flutter/bin:$ANDROID_HOME/platform-tools:$HOME/.pub-cache/bin"
 fi
 
+if [[ -d "$HOME/.cargo/" ]]; then
+  export PATH="$PATH:$HOME/.cargo/bin/"
+fi
+
 if uwsm check may-start; then
   exec uwsm start hyprland.desktop
 fi
