@@ -194,7 +194,7 @@ echo "Linking dotfiles"
 mkdir -p ~/.config ~/.local/bin
 ln -sf ~/dotfiles/.config/* ~/.config/
 ln -sf ~/dotfiles/home/.* ~/
-ln -sf ~/dotfiles/bin/* ~/.local/bin/
+ln -sf ~/dotfiles/.local/bin/* ~/.local/bin/
 
 echo "Downloading a wallpaper to ~/.config/bg/"
 curl -sL https://w.wallhaven.cc/full/rr/wallhaven-rrv85q.png -o ~/.config/bg/keyboard.png
