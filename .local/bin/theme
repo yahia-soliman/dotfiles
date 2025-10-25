@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+KEY="org.gnome.desktop.interface color-scheme"
+IS_DARK=$(gsettings get $KEY | grep dark)
+case "$1" in 
+	"--switch")
+		NEXT=$([ "$IS_DARK" ] && echo prefer-light || echo prefer-dark)
+		gsettings set $KEY $NEXT
+		;;
+	"--dark")
+		[ $IS_DARK ] || gsettings set $KEY prefer-dark
+		;;
+	"--light")
+		[ $IS_DARK ] && gsettings set $KEY prefer-light || true
+		;;
+	*)
+		[ $IS_DARK ] && echo dark || echo light
+		;;
+esac

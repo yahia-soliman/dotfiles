@@ -1,4 +1,0 @@
-#!/usr/bin/bash
-IS_DARK=$(gsettings get org.gnome.desktop.interface color-scheme | grep dark)
-NEXT=$([ "$IS_DARK" ] && echo 'prefer-light' || echo 'prefer-dark')
-gsettings set org.gnome.desktop.interface color-scheme "$NEXT"
