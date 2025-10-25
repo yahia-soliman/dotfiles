@@ -7,7 +7,10 @@
 
 [core]
   editor = nvim
-  pager = delta
+  pager = git delta
+
+[interactive]
+  diffFilter = git delta --color-only
 
 [color]
   ui = true
@@ -29,9 +32,18 @@
   pr = pull --rebase
   ls = log --graph --decorate --pretty=format:'%C(3)%h %C(4)[%cn] %C(8)%s %C(1)%d'
   alias = !git config -l | rg alias | cut -c 7- | sed 's/=/\t/'
+  delta = !delta --features "$(theme)"-theme
 
 [protocol "file"]
   allow = always
 
+[delta "dark-theme"]
+  dark = true
+  features = catppuccin-mocha
+
+[delta "light-theme"]
+  light = true
+  features = catppuccin-latte
+
 [delta]
-  features = catppuccin-mocha decorations
+  features = decorations

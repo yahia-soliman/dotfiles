@@ -1,38 +1,38 @@
 gui:
   theme: # Catppuccin Mocha (Mauve)
     activeBorderColor:
-      - '#cba6f7'
+      - magenta
       - bold
     inactiveBorderColor:
-      - '#a6adc8'
+      - grey
     optionsTextColor:
-      - '#89b4fa'
+      - blue
     selectedLineBgColor:
-      - '#313244'
+      - black
     cherryPickedCommitBgColor:
-      - '#45475a'
+      - grey
     cherryPickedCommitFgColor:
-      - '#cba6f7'
+      - purple
     unstagedChangesColor:
-      - '#f38ba8'
+      - red
     defaultFgColor:
-      - '#cdd6f4'
+      - white
     searchingActiveBorderColor:
-      - '#f9e2af'
+      - yellow
       - bold
     inactiveViewSelectedLineBgColor:
       - bold
     markedBaseCommitFgColor:
-      - "#89b7fa"
+      - cyan
     markedBaseCommitBgColor:
-      - "#f9e2af"
+      - yellow
 
 
   authorColors:
-    '*': '#b4befe'
+    '*': white
 
 
 git:
   paging:
       colorArg: always
-      pager: delta --dark --paging=never
+      pager: git delta --dark --paging=never

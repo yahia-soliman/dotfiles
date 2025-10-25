@@ -26,4 +26,4 @@
 
 
 -p
---theme="Catppuccin Mocha"
+--theme=ansi
