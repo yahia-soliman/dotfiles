@@ -11,4 +11,5 @@ cursor-style-blink = false
 cursor-invert-fg-bg = true
 shell-integration-features = no-cursor
 background-opacity = 0.9
+working-directory = "home"
 # gtk-titlebar = false
