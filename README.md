@@ -1,18 +1,18 @@
-# Comfy home inside the Void
+# Fedora + Niri
+The perfect laptop setup
 
 # System Specs
 
 | OS     | Void Linux |
 | ------ | ---------- |
-| WM     | i3         |
+| WM     | Niri       |
 | Editor | Neovim     |
-| Term   | Alacritty  |
-| Audio  | pipewire   |
+| Term   | Ghostty    |
 
 # Configuration Steps
 ## Prerequisites
-- Fresh Void Linux installation, [help](https://docs.voidlinux.org/installation/live-images/prep.html)
-- Connection to the internet `ping voidlinux.org`
+- Fresh Fedora Installation
+- Connection to the internet `ping fedoraproject.org`
 - Suitable CPU and GPU drivers Installed, [help](https://docs.voidlinux.org/config/graphical-session/graphics-drivers/index.html)
 
 ### Update the system

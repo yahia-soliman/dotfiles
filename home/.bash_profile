@@ -11,8 +11,6 @@ export NODE_PATH="$HOME/.local/lib/node_modules"
 # this will be useful if only this line is in the .npmrc
 # prefix = "${HOME}/.local"
 
-export PGUSER=postgres
-
 if [[ -d "$HOME/Android" && ! $ANDROID_HOME ]]; then
   export ANDROID_HOME="$HOME/Android"
   export ANDROID_SDK_ROOT="$ANDROID_HOME/cmdline-tools/latest"
@@ -24,6 +22,7 @@ if [[ -d "$HOME/.cargo/" ]]; then
   export PATH="$PATH:$HOME/.cargo/bin/"
 fi
 
-if uwsm check may-start; then
-  exec uwsm start hyprland.desktop
-fi
+export HISTSIZE=100000
+export HISTFILESIZE=-1
+export PGUSER=postgres
+export EDITOR=/usr/bin/nvim

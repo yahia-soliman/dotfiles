@@ -6,10 +6,7 @@ clear
 # PROGRAMS #
 ############
 SYSTEM_UTILS=(
-	# nvidia
-	polkit
 	openssh
-	# 1password
 	nerdfetch
 	less
 	fzf
