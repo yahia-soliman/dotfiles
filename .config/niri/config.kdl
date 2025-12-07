@@ -338,6 +338,13 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    // prevent flameshot from moving other windows when closed
+    match app-id=r#"flameshot$"# title="^flameshot$"
+    open-fullscreen false
+    open-floating true
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -590,7 +597,7 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
+    Mod+Shift+S { spawn "flameshot" "gui"; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
