@@ -75,6 +75,26 @@ fc-cache -fv
 ```
 
 
+## Battery Care
+I followed this toturial on tlp to set battery charge thresholds
+https://linuxblog.io/boost-battery-life-on-linux-laptop-tlp/
+```conf /etc/tlp.conf
+START_CHARGE_THRESH_BAT0=50 
+STOP_CHARGE_THRESH_BAT0=80
+```
+
+
+## (WIP) Switch between GPU moods
+```
+sudo systemctl enable supergfxd.service
+sudo systemctl start supergfxd.service
+```
+can be controlled with a dms plugin
+
+for full vedio codec support:
+```
+sudo dnf group upgrade  multimedia --exclude=PackageKit-gstreamer-plugin
+```
 
 # TODO
 - fix sleep timer
