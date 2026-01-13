@@ -15,9 +15,9 @@ alias ls='ls --color=auto'
 alias la='ls -la'
 alias ll='ls -l'
 alias grep='grep --color=auto'
-alias tn='tmux new -s'
-alias ta='tmux attach -t'
-alias tk='tmux kill-session -t'
+alias tn='zellij -s'
+alias ta='zellij attach'
+alias tk='zellij kill-session'
 alias ui='pnpm dlx shadcn@latest'
 
 alias cloco="cloc --by-file --exclude-ext=po,pot,rst,md,svg,css,html"
@@ -27,6 +27,7 @@ alias semicheck="semistandard *.js | awk -F/ '{print \$NF}'"
 alias diffdir='icdiff -r --show-no-spaces -x "*.po"'
 alias yt='yt-dlp --ignore-errors --continue --no-overwrites --download-archive "./done.txt" --output "./%(playlist_index)003d - %(title)s.%(ext)s" -S' # res:720
 alias y3='yt-dlp -f "bestaudio[ext=m4a]" --ignore-errors --continue --no-overwrites --download-archive "./done.txt" --output "./%(playlist_index)003d - %(title)s.%(ext)s"'
+alias aria2cmeta='aria2c --bt-metadata-only=true --bt-save-metadata=true'
 
 alias i='sudo dnf install'
 alias u='sudo dnf upgrade --refresh'
@@ -63,3 +64,11 @@ odoodevshell() {
 	./odoo-bin shell --addons-path=./addons/,./enterprise/,./${DB} \
 		-r ${VER} -w ${VER} -d ${DB/\//} ${@:2}
 }
+
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi

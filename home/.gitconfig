@@ -3,11 +3,12 @@
 
 [user]
   name = Yahia
-  email = yn7599@gmail.com
+  email = yahia@snoonu.com
 
 [core]
   editor = nvim
   pager = git delta
+  excludesfile = /home/yahia/.gitignore
 
 [interactive]
   diffFilter = git delta --color-only

@@ -14,3 +14,4 @@ shell-integration-features = no-cursor
 # background-opacity = 0.9
 window-inherit-working-directory = false
 gtk-titlebar = false
+maximize = false

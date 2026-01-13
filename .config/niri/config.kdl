@@ -12,6 +12,7 @@ environment {
   ELECTRON_OZONE_PLATFORM_HINT "auto"
   QT_QPA_PLATFORMTHEME "gtk3"
   QT_QPA_PLATFORMTHEME_QT6 "gtk3"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
 }
 
 input {
@@ -294,7 +295,7 @@ hotkey-overlay {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -667,3 +668,4 @@ binds {
 
 
 spawn-at-startup "bash" "-c" "wl-paste --watch cliphist store &"
+spawn-at-startup "dms" "run"

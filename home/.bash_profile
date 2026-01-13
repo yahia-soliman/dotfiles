@@ -26,3 +26,12 @@ export HISTSIZE=100000
 export HISTFILESIZE=-1
 export PGUSER=postgres
 export EDITOR=/usr/bin/nvim
+
+source /usr/share/bash-completion/bash_completion 2> /dev/null || true
+
+# fnm
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$PATH:$FNM_PATH"
+  eval "`fnm env`"
+fi

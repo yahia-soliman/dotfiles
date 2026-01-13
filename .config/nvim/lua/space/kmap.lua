@@ -1,4 +1,3 @@
-vim.keymap.set("n", "<leader>od", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>bp", vim.cmd.bprevious)
 vim.keymap.set("n", "<leader>bn", vim.cmd.bnext)
 
